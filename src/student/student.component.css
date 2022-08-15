@@ -1,0 +1,10 @@
+.pass{
+    background-color: green;
+}
+.fail{
+    background-color: red;
+    font-weight: bolder;
+}
+.co{
+    background-color: red;
+}

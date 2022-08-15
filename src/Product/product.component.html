@@ -1,0 +1,30 @@
+<category [all]="gettotalitems()" [electronic]="gettotalelectronic()" [fashion]="gettotalfashion()"
+    [mobile]="gettotalmobile()" [books]="gettotalbooks()" (selectedCategoryevent)="getselected($event)"></category>
+<br><br>
+<table class="table" border="3">
+    <thead [ngClass]="{'purple':true}">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let items of listofproduct">
+            <ng-container *ngIf="flag===true">
+                <tr *ngIf="selectedradio=='all'|| items.category==selectedradio">
+                    <td [ngClass]="{'green':true}">{{items.name | catpipe:items.category}}</td>
+                    <td>{{items.category}}</td>
+                    <td>{{items.quantity}}</td>
+                    <td>{{items.price}}</td>
+                    <td>{{items.description}}</td>
+                </tr>
+            </ng-container>
+
+        </ng-container>
+    </tbody>
+
+    <button type="button" [ngClass]="{'maroon':!flag , 'orange':flag}" on-click="showdata()">{{text_button}}</button>
+</table>
